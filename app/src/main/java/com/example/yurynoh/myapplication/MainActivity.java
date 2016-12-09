@@ -118,13 +118,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(TextUtils.isEmpty(mature.getText()) && TextUtils.isEmpty(premature.getText()) && TextUtils.isEmpty(kid.getText())) {
-                    Toast.makeText(MainActivity.this, "인원을 입력하세요", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "인원을 제대로 입력하세요", Toast.LENGTH_SHORT).show();
                 } else {
                     int matureCnt = Integer.parseInt(mature.getText().toString());
                     int prematureCnt = Integer.parseInt(premature.getText().toString());
                     int kidCnt = Integer.parseInt(kid.getText().toString());
 
-                    totalMember.setText((matureCnt+prematureCnt+kidCnt) + "명");
+                    totalMember.setText((matureCnt+prematureCnt+kidCnt) + " 명");
 
                     int price = (matureCnt *15000) + (prematureCnt * 12000) + (kidCnt * 6000);
                     double discountAmt = 0;
@@ -132,8 +132,8 @@ public class MainActivity extends AppCompatActivity {
                     else if(billMethod == 2) discountAmt = price * 0.1;
                     else if(billMethod == 3) discountAmt = price * 0.2;
 
-                    discount.setText(discountAmt + "원");
-                    totalPrice.setText((price - discountAmt) +"원");
+                    discount.setText(discountAmt + " 원");
+                    totalPrice.setText((price - discountAmt) +" 원");
                     memberBookDone = true;
                 }
             }
@@ -182,9 +182,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(year == -1 || hour == -1) {
-                    Toast.makeText(MainActivity.this, "날짜 혹은 시간을 입력하세요", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "날짜 혹은 시간을 제대로 입력하세요", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(MainActivity.this, year+"-"+month+"-"+day+"-"+hour+":"+min+"예약이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, year+"-"+month+"-"+day+"-"+hour+":"+min+" 예약이 완료되었습니다.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
