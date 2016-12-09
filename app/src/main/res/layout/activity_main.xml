@@ -39,7 +39,7 @@
 
             <TextView
                 android:text="인원예약"
-                android:layout_width="342dp"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView14"
                 android:textSize="30sp"
@@ -116,7 +116,7 @@
                 <RadioGroup
                     android:layout_width="254dp"
                     android:layout_height="match_parent"
-                    android:checkedButton="@+id/radioButton"
+                    android:checkedButton="@+id/radioButton3"
                     android:id="@+id/radioGroup1">
 
                     <RadioButton
