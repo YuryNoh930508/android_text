@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.Chronometer;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -16,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,10 +27,12 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout membersBook, timeBook;
     RadioGroup firstRG, secondRG;
     ImageView imageView;
-    Button memberBook, timeBookGo;
+    Button memberBook, timeBookGo, timesBook, memberBookGo;
     EditText mature, premature, kid;
     TextView totalMember, discount, totalPrice;
-    int billMethod;
+    CalendarView calendarView;
+    TimePicker timePicker;
+    int billMethod, year, month, day, hour, min;
     boolean memberBookDone;
 
     @Override
@@ -53,6 +57,14 @@ public class MainActivity extends AppCompatActivity {
         billMethod = 1;
         memberBookDone = false;
 
+        secondRG = (RadioGroup)findViewById(R.id.radioGroup2);
+        calendarView = (CalendarView)findViewById(R.id.calendarView);
+        timePicker = (TimePicker)findViewById(R.id.timePicker);
+        year = -1; month = -1; day = -1; hour = -1; min = -1;
+        timesBook = (Button)findViewById(R.id.button7);
+        memberBookGo = (Button)findViewById(R.id.button6);
+
+
 
         toggleBookTime.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
 
@@ -65,8 +77,20 @@ public class MainActivity extends AppCompatActivity {
                     tickBookTime.setTextColor(Color.BLUE);
                 } else {
                     membersBook.setVisibility(View.INVISIBLE);
+                    timeBook.setVisibility(View.INVISIBLE);
                     tickBookTime.stop();
                     tickBookTime.setTextColor(Color.BLACK);
+                    billMethod = 1;
+                    memberBookDone = false;
+                    year = -1; month = -1; day = -1; hour = -1; min = -1;
+                    firstRG.check(R.id.radioButton3);
+                    secondRG.check(R.id.radioButton7);
+                    mature.setText("");
+                    premature.setText("");
+                    kid.setText("");
+                    totalMember.setText("");
+                    discount.setText("");
+                    totalPrice.setText("");
                 }
             }
         });
@@ -122,6 +146,52 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(MainActivity.this, "인원 예약을 마치세요", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        secondRG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(checkedId == R.id.radioButton7) {
+                    calendarView.setVisibility(View.VISIBLE);
+                    timePicker.setVisibility(View.INVISIBLE);
+                } else if(checkedId == R.id.radioButton6) {
+                    timePicker.setVisibility(View.VISIBLE);
+                    calendarView.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int y, int m, int d) {
+                year = y; month = m; day = d;
+            }
+        });
+
+        timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+            @Override
+            public void onTimeChanged(TimePicker view, int h, int m) {
+                hour = h; min = m;
+            }
+        });
+
+        timesBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(year == -1 || hour == -1) {
+                    Toast.makeText(MainActivity.this, "날짜 혹은 시간을 입력하세요", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, year+"-"+month+"-"+day+"-"+hour+":"+min+"예약이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        memberBookGo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timeBook.setVisibility(View.INVISIBLE);
+                membersBook.setVisibility(View.VISIBLE);
             }
         });
     }

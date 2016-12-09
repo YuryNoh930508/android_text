@@ -237,17 +237,22 @@
             android:visibility="invisible"
             android:id="@+id/time">
 
-            <Button
+            <TextView
                 android:text="시간예약"
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/button5" />
+                android:id="@+id/textView15"
+                android:layout_width="320dp"
+                android:textSize="25sp"
+                android:background="@color/colorAccent"
+                android:layout_marginLeft="20dp"
+                android:textAlignment="center"/>
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:id="@+id/radioGroup2">
+                android:id="@+id/radioGroup2"
+                android:checkedButton="@+id/radioButton7">
 
                 <RadioButton
                     android:text="일자 설정"
@@ -271,7 +276,7 @@
                 <CalendarView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/calendarView" />
+                    android:id="@+id/calendarView"/>
 
                 <TimePicker
                     android:layout_width="wrap_content"
