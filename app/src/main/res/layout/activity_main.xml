@@ -37,11 +37,15 @@
             android:visibility="invisible"
             android:id="@+id/member">
 
-            <Button
+            <TextView
                 android:text="인원예약"
-                android:layout_width="match_parent"
+                android:layout_width="342dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/button4" />
+                android:id="@+id/textView14"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:background="@color/colorAccent"
+                android:layout_marginLeft="20dp" />
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -106,12 +110,14 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="123dp"
-                android:layout_weight="1.08">
+                android:layout_height="119dp"
+                android:layout_weight="0.92">
 
                 <RadioGroup
                     android:layout_width="254dp"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent"
+                    android:checkedButton="@+id/radioButton"
+                    android:id="@+id/radioGroup1">
 
                     <RadioButton
                         android:text="기본할인(5% 할인)"
@@ -138,7 +144,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:srcCompat="@android:drawable/alert_dark_frame"
+                    app:srcCompat="@drawable/image1"
                     android:id="@+id/imageView" />
 
             </LinearLayout>
@@ -169,7 +175,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:text="총 명수:"
+                    android:text="총  명수:"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView9"
@@ -240,7 +246,8 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:id="@+id/radioGroup2">
 
                 <RadioButton
                     android:text="일자 설정"
