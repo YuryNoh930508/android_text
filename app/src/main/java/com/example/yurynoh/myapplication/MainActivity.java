@@ -83,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
                     billMethod = 1;
                     memberBookDone = false;
                     year = -1; month = -1; day = -1; hour = -1; min = -1;
+                    calendarView.clearFocus();
+                    timePicker.clearFocus();
                     firstRG.check(R.id.radioButton3);
                     secondRG.check(R.id.radioButton7);
                     mature.setText("");
