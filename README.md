@@ -9,4 +9,4 @@
 <h3>날짜 및 시간 예약 마친 상태</h3>
 <img src='/app/pics/Screenshot_1481253329.png?raw=true' width='200px' />
 <h3>스위치를 껏다가 킨 이후에 리셋된 상태(시간예약GO버튼 클릭 시 토스트 메세지)</h3>
-<img src='/app/pics/Screenshot_1480645941.png?raw=true' width='200px' />
+<img src='/app/pics/Screenshot_1481253614.png?raw=true' width='200px' />
